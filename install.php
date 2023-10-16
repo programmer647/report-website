@@ -1,6 +1,6 @@
 <?php
 include_once("connection.php");
-$stmt = $conn->prepare("DROP TABLE IF EXISTS TblUser;
+$stmt = $conn->prepare("DROP TABLE IF EXISTS TblUsers;
 CREATE TABLE TblUsers 
 (UserID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 Gender VARCHAR(1) NOT NULL,
@@ -12,4 +12,28 @@ Year INT(2) NOT NULL,
 Role TINYINT(1))");
 $stmt->execute();
 $stmt->closeCursor();
+
+
+$stmt = $conn->prepare("DROP TABLE IF EXISTS TblSubjects;
+CREATE TABLE TblSubjects 
+(SubjectID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+Subjectname VARCHAR(20) NOT NULL,
+Teacher VARCHAR(20) NOT NULL,
+Role TINYINT(1))");
+$stmt->execute();
+$stmt->closeCursor();
+
+$stmt = $conn->prepare("DROP TABLE IF EXISTS TblPupilStudies;
+CREATE TABLE TblPupilStudies
+(Userid INT(4),
+Classposition INT(2),
+Classgrade CHAR(1),
+Exammark INT(2),
+Comment TEXT,
+PRIMARY KEY(Subjectid, Userid)");
+$stmt->execute();
+$stmt->closeCursor();
+
+
+
 ?>
