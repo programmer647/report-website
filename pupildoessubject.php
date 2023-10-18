@@ -6,7 +6,7 @@
     
 </head>
 <body>
-
+<form action="addtoclass.php" method="post">
 <select name = "student">
 <?php
 include_once('connection.php');
@@ -32,10 +32,17 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
 	echo('<option value='.$row["SubjectID"].'>'.$row["Subjectname"].', '.$row["Teacher"].'</option>');
 }
+
+
 ?>
 </select>
 
-<!--Add button for adding here-->
+
+
+  <input type="submit" value="Add to">
+  
+</form>
+
 
        
 </body>

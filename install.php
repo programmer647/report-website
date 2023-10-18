@@ -26,11 +26,12 @@ $stmt->closeCursor();
 $stmt = $conn->prepare("DROP TABLE IF EXISTS TblPupilStudies;
 CREATE TABLE TblPupilStudies
 (Userid INT(4),
+Subjectid INT(4),
 Classposition INT(2),
 Classgrade CHAR(1),
 Exammark INT(2),
 Comment TEXT,
-PRIMARY KEY(Subjectid, Userid)");
+PRIMARY KEY(Subjectid, Userid))");
 $stmt->execute();
 $stmt->closeCursor();
 
