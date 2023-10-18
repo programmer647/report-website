@@ -1,9 +1,18 @@
 <?php
 session_start(); 
-if (!isset($_SESSION['name']))
-{   
-    header("Location:login.php");
+if(password_verify($attempt,$hashed)){
+    $_SESSION['name']=$row["Surname"];
+    if (!isset($_SESSION['backURL'])){
+        $backURL= "/"; //Sets a default destination if no BackURL set (parent dir)
+    }else{
+        $backURL=$_SESSION['backURL'];
+    }
+    unset($_SESSION['backURL']);
+    header('Location: ' . $backURL);
+}else{
+    header('Location: login.php');
 }
+
 ?>
 
 <?php
