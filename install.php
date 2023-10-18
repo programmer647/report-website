@@ -1,4 +1,12 @@
 <?php
+session_start(); 
+if (!isset($_SESSION['name']))
+{   
+    header("Location:login.php");
+}
+?>
+
+<?php
 include_once("connection.php");
 $stmt = $conn->prepare("DROP TABLE IF EXISTS TblUsers;
 CREATE TABLE TblUsers 

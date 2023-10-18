@@ -1,4 +1,20 @@
 <?php
+session_start(); 
+if (!isset($_SESSION['name']))
+{   
+    header("Location:login.php");
+}
+?>
+
+<?php
+session_start(); 
+if (!isset($_SESSION['name']))
+{   
+    header("Location:login.php");
+}
+?>
+
+<?php
 
 include_once('connection.php');
 echo("</br>");
